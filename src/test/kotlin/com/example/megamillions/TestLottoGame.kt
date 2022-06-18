@@ -13,7 +13,7 @@ class TestLottoGame {
     @Test
     fun runSim(){
         val sim = SimulationRunner(MegaMillionsLottoGame())
-        val numSimulations = 100000000000L
+        val numSimulations = 10000000000L
         val startTime = LocalDateTime.now()
         println("NumSimulations: ${NumberFormat.getInstance().format(numSimulations)}")
         println("StartTime: $startTime")
@@ -22,7 +22,7 @@ class TestLottoGame {
         val endTime = LocalDateTime.now()
         val totalTime = Duration.between(endTime, startTime)
         println()
-        println("totalTime: $sim.totalTime")
+        println("totalTime: $totalTime")
 
         val consoleViewer = ConsoleStatsViewer()
         consoleViewer.displayStats(sim)
