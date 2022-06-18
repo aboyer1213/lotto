@@ -12,7 +12,7 @@ class TestLottoGame {
 
     @Test
     fun runSim(){
-        val sim = SimulationRunner(MegaMillionsLottoGame())
+        val sim = SimulationRunner(MegaMillionsLottoGame(), 12)
         val numSimulations = 10000000000L
         val startTime = LocalDateTime.now()
         println("NumSimulations: ${NumberFormat.getInstance().format(numSimulations)}")
