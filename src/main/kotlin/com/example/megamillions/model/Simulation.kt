@@ -1,4 +1,4 @@
-package com.example.megamillions.domain
+package com.example.megamillions.model
 
 interface Simulation {
     val identifier: String
@@ -8,4 +8,5 @@ interface Simulation {
     var numJackpots: Int
     var numberOfWins: Long
     var numRuns: Long
+    val winningsCalculator: WinningsCalculator
 }

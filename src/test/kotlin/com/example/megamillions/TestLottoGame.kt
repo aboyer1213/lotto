@@ -1,7 +1,8 @@
 package com.example.megamillions
 
-import com.example.megamillions.domain.MegaMillionsLottoGame
-import com.example.megamillions.domain.SimulationRunner
+import com.example.megamillions.model.MegaMillionsLottoGame
+import com.example.megamillions.model.MegaMillionsWinningsCalculator
+import com.example.megamillions.model.SimulationRunner
 import com.example.megamillions.view.ConsoleStatsViewer
 import org.junit.jupiter.api.Test
 import java.text.NumberFormat
@@ -12,8 +13,8 @@ class TestLottoGame {
 
     @Test
     fun runSim(){
-        val sim = SimulationRunner(MegaMillionsLottoGame(), 12)
-        val numSimulations = 10000000000L
+        val sim = SimulationRunner(MegaMillionsLottoGame(), 4, MegaMillionsWinningsCalculator())
+        val numSimulations = 100000000L
         val startTime = LocalDateTime.now()
         println("NumSimulations: ${NumberFormat.getInstance().format(numSimulations)}")
         println("StartTime: $startTime")

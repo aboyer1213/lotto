@@ -1,4 +1,4 @@
-package com.example.megamillions.domain
+package com.example.megamillions.model
 
 interface LottoGame {
     val totalBalls: Int

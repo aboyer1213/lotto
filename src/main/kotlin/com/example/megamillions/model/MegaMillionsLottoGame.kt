@@ -1,4 +1,4 @@
-package com.example.megamillions.domain
+package com.example.megamillions.model
 
 class MegaMillionsLottoGame : LottoGame{
     override val totalBalls = 70

@@ -1,9 +1,11 @@
-package com.example.megamillions.domain
+package com.example.megamillions.model
 
 import org.springframework.context.annotation.Scope
 
 @Scope("singleton")
-class SimulationRunner(override val lottoGame: LottoGame, val numThreads: Int) : Simulation {
+class SimulationRunner(override val lottoGame: LottoGame,
+                       private val numThreads: Int,
+                       override val winningsCalculator: WinningsCalculator) : Simulation {
     override val identifier = "mother-runner"
     override val jackpot = 3000000L
     override var totalWinnings = 0L
@@ -16,7 +18,7 @@ class SimulationRunner(override val lottoGame: LottoGame, val numThreads: Int) :
 
         var threads: ArrayList<SimulationRunnable> = ArrayList<SimulationRunnable>()
         for (i in 1 .. numSimulations step interval) {
-            threads.add (SimulationRunnable(lottoGame, jackpot, interval, this))
+            threads.add (SimulationRunnable(lottoGame, jackpot, interval, this, winningsCalculator))
         }
         threads.forEach { it.start() }
         threads.forEach {it.join()}

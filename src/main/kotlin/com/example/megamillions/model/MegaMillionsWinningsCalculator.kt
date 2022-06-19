@@ -1,7 +1,7 @@
-package com.example.megamillions.domain
+package com.example.megamillions.model
 
 class MegaMillionsWinningsCalculator: WinningsCalculator {
-    override fun calculateWinnings(ticket: RandomLottoBallGenerator, drawing: RandomLottoBallGenerator, jackpot: Long): Long {
+    override fun calculateWinnings(ticket: RandomLottoGenerator, drawing: RandomLottoGenerator, jackpot: Long): Long {
         var numMatches = 0
         for (ticketVal in ticket.normalBalls) {
             if (drawing.normalBalls.contains(ticketVal)){

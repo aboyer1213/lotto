@@ -1,13 +1,15 @@
-package com.example.megamillions.domain
+package com.example.megamillions.model
 
 import com.example.megamillions.view.ConsoleStatsViewer
+import com.example.megamillions.view.StatsViewer
 import java.time.LocalDateTime
 
 class SimulationRunnable(
     override val lottoGame: LottoGame,
     override val jackpot: Long,
     override var numRuns: Long,
-    private val simRunner: SimulationRunner, // TODO autowire
+    private val simRunner: SimulationRunner, // TODO autowire?
+    override val winningsCalculator: WinningsCalculator
 ) : Runnable, Simulation{
     override val identifier: String = Thread.currentThread().id.toString()
     override var totalWinnings = 0L
@@ -18,10 +20,9 @@ class SimulationRunnable(
     override fun run() {
         println("starting thread ${Thread.currentThread()} : ${LocalDateTime.now()}")
         for (i in 1 .. numRuns) {
-            val ticket = RandomLottoBallGenerator(lottoGame)
-            val drawing = RandomLottoBallGenerator(lottoGame)
-            val wc = MegaMillionsWinningsCalculator()
-            val winnings = wc.calculateWinnings(ticket, drawing, jackpot)
+            val ticket = RandomLottoGenerator(lottoGame)
+            val drawing = RandomLottoGenerator(lottoGame)
+            val winnings = winningsCalculator.calculateWinnings(ticket, drawing, jackpot)
             totalWinnings += winnings
 
             if (winnings > 0) {

@@ -1,8 +1,6 @@
-package com.example.megamillions.domain
+package com.example.megamillions.model
 
-import lombok.With
-
-class RandomLottoBallGenerator(val lottoGame: LottoGame){
+class RandomLottoGenerator(val lottoGame: LottoGame){
 
     val normalBalls: Array<Int>
     val specialBall: Int

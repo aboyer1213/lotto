@@ -1,10 +1,9 @@
 package com.example.megamillions.view
 
-import com.example.megamillions.domain.Simulation
-import com.example.megamillions.domain.StatsViewer
+import com.example.megamillions.model.Simulation
 import java.text.NumberFormat
 
-class ConsoleStatsViewer : StatsViewer{
+class ConsoleStatsViewer : StatsViewer {
     override fun displayStats(sim: Simulation){
         println("-----------------------------------------------------------------------------------------------")
         println("Sim Identifier: ${sim.identifier}")
