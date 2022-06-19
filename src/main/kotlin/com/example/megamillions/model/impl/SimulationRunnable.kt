@@ -1,5 +1,9 @@
-package com.example.megamillions.model
+package com.example.megamillions.model.impl
 
+import com.example.megamillions.model.LottoGame
+import com.example.megamillions.model.RandomLottoGenerator
+import com.example.megamillions.model.Simulation
+import com.example.megamillions.model.WinningsCalculator
 import com.example.megamillions.view.ConsoleStatsViewer
 import com.example.megamillions.view.StatsViewer
 import java.time.LocalDateTime
@@ -10,7 +14,7 @@ class SimulationRunnable(
     override var numRuns: Long,
     private val simRunner: SimulationRunner, // TODO autowire?
     override val winningsCalculator: WinningsCalculator
-) : Runnable, Simulation{
+) : Runnable, Simulation {
     override val identifier: String = Thread.currentThread().id.toString()
     override var totalWinnings = 0L
     override var numJackpots = 0

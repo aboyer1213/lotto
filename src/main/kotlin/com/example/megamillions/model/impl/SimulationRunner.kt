@@ -1,11 +1,15 @@
-package com.example.megamillions.model
+package com.example.megamillions.model.impl
 
+import com.example.megamillions.model.LottoGame
+import com.example.megamillions.model.Simulation
+import com.example.megamillions.model.WinningsCalculator
 import org.springframework.context.annotation.Scope
 
 @Scope("singleton")
 class SimulationRunner(override val lottoGame: LottoGame,
                        private val numThreads: Int,
-                       override val winningsCalculator: WinningsCalculator) : Simulation {
+                       override val winningsCalculator: WinningsCalculator
+) : Simulation {
     override val identifier = "mother-runner"
     override val jackpot = 3000000L
     override var totalWinnings = 0L

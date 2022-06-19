@@ -1,4 +1,7 @@
-package com.example.megamillions.model
+package com.example.megamillions.model.impl
+
+import com.example.megamillions.model.RandomLottoGenerator
+import com.example.megamillions.model.WinningsCalculator
 
 class MegaMillionsWinningsCalculator: WinningsCalculator {
     override fun calculateWinnings(ticket: RandomLottoGenerator, drawing: RandomLottoGenerator, jackpot: Long): Long {
